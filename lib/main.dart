@@ -28,20 +28,21 @@ class MyApp extends StatelessWidget {
 class MyHomePage extends StatelessWidget {
   MyHomePage({Key key, this.title}) : super(key: key);
   final String title;
-  var constructions = <ConstructionItem>[];
 
-  List<ConstructionItem> sortConstructions(List<ConstructionItem> constructions) {
+  List<Item> sortItems(List<Item> items) {
 
-      constructions.sort((item1, item2) {
-        return item1.startedDate.difference(item2.startedDate).inMinutes;
-      });
+    // 1st sort
+    items.sort((item1, item2) {
+      return item1.startedDate.difference(item2.startedDate).inMinutes;
+    });
 
-      constructions.sort((item1, item2) {
-        return 0;
-      });
+    // 2nd sort
+    items.sort((item1, item2) {
+      return 0;
+    });
 
-      return constructions;
-    }
+    return items;
+  }
 
   @override
   Widget build(BuildContext context) {

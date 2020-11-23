@@ -13,18 +13,18 @@ DateTime string2date(String dateString) {
 }
 
 
-class ConstructionItem {
+class Item {
+  //required
   int id;
-  String name;
-  DateTime startedDate;       //required
-  DateTime endedDate;         //required
-  DateTime startedDatetime;   //optional
-  DateTime endedDatetime;     //optional startedDatetimeがnullでなければある
   DateTime createdAt;
+  DateTime startedDate;
+  DateTime endedDate;
+  //optional
+  DateTime startedDatetime;
+  DateTime endedDatetime;
 
-  ConstructionItem({
+  Item({
     this.id,
-    this.name,
     this.startedDate,
     this.endedDate,
     this.startedDatetime,
