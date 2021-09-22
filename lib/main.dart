@@ -24,18 +24,23 @@ class MyApp extends StatelessWidget {
   }
 }
 
-// ignore: must_be_immutable
 class MyHomePage extends StatelessWidget {
-  MyHomePage({Key key, this.title}) : super(key: key);
-  final String title;
 
   List<Item> sortItems(List<Item> items) {
+    return items..sort((item1, item2) {
 
-    // 1st sort
-    items.sort((item1, item2) {
       if (item1.startedDate == item2.startedDate) {
+        //同じ日付のとき
         if (item1.startedDatetime == null && item2.startedDatetime == null) {
+
+          if (item1.endedDatetime == null && item2.endedDatetime != null) {
+            return 1;
+          }
+          if (item1.endedDatetime != null && item2.endedDatetime != null) {
+            return item1.endedDatetime.difference(item2.endedDatetime).inMinutes;
+          }
           return 0;
+
         }
         if (item1.startedDatetime != null && item2.startedDatetime == null) {
           return 0;
@@ -45,27 +50,29 @@ class MyHomePage extends StatelessWidget {
         }
         if (item1.startedDatetime != null && item2.startedDatetime != null) {
           if (item1.startedDatetime == item2.startedDatetime) {
-            return item1.endedDatetime.difference(item2.endedDatetime).inMinutes;
+
+            if (item1.endedDatetime == null && item2.endedDatetime != null) {
+              return 1;
+            }
+            if (item1.endedDatetime != null && item2.endedDatetime != null) {
+              return item1.endedDatetime.difference(item2.endedDatetime).inMinutes;
+            }
+            return 0;
+
           }
           return item1.startedDatetime.difference(item2.startedDatetime).inMinutes;
         }
         return 0;
       }
+      // 違う日付のとき
       return item1.startedDate.difference(item2.startedDate).inMinutes;
     });
-
-    // 2nd sort
-    // items.sort((item1, item2) {
-    //   return 0;
-    // });
-
-    return items;
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text('sort')),
+      appBar: AppBar(title: Text('sort logic sample')),
     );
   }
 }
