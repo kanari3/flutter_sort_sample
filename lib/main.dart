@@ -37,9 +37,24 @@ class MyHomePage extends StatelessWidget {
           SortedComparable<Item, DateTime>(
                 (item) => item.startedDatetime, invert: true,
           ),
-          SortedComparable<Item, DateTime>(
+          // SortedComparable<Item, DateTime>(
+          //       (item) => item.endedDatetime,
+          // ),
+          SortedComparator<Item, DateTime>(
                 (item) => item.endedDatetime,
-          ),
+                (a, b) {
+                  if (a != null && b == null){
+                    return 0;
+                  }
+                  if (a == null && b != null){
+                    return 1;
+                  }
+                  if (a != null && b != null){
+                    return a.difference(b).inMinutes;
+                  }
+                  return 1;
+                },
+          )
         ]
     );
   }

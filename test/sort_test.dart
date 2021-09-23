@@ -14,8 +14,8 @@ void main() {
       items = [
         Item()..id = 1..createdAt = string2date('2020-07-11T15:16:53+09:00')..startedDate = string2date('2020-11-06T00:00:00+09:00')..startedDatetime = string2date('2020-11-06T08:00:00+09:00')..endedDatetime = string2date('2020-11-07T18:00:00+09:00'),
         Item()..id = 0..createdAt = string2date('2020-07-11T15:16:53+09:00')..startedDate = string2date('2020-11-06T00:00:00+09:00')..startedDatetime = string2date('2020-11-06T08:00:00+09:00')..endedDatetime = string2date('2020-11-07T17:00:00+09:00'),
-        Item()..id = 2..createdAt = string2date('2020-07-11T21:11:44+09:00')..startedDate = string2date('2020-11-06T00:00:00+09:00'),
-        Item()..id = 3..createdAt = string2date('2020-07-20T17:53:30+09:00')..startedDate = string2date('2020-11-07T00:00:00+09:00'),
+        Item()..id = 2..createdAt = string2date('2020-07-11T15:16:53+09:00')..startedDate = string2date('2020-11-06T00:00:00+09:00')..startedDatetime = string2date('2020-11-06T08:00:00+09:00'),
+        Item()..id = 3..createdAt = string2date('2020-07-11T15:16:53+09:00')..startedDate = string2date('2020-11-06T00:00:00+09:00'),
         Item()..id = 4..createdAt = string2date('2020-07-11T15:16:53+09:00')..startedDate = string2date('2020-11-08T00:00:00+09:00')..startedDatetime = string2date('2020-11-08T08:00:00+09:00')..endedDatetime = string2date('2020-11-08T17:00:00+09:00'),
         Item()..id = 5..createdAt = string2date('2020-07-11T21:11:44+09:00')..startedDate = string2date('2020-11-08T00:00:00+09:00'),
         Item()..id = 10..createdAt = string2date('2020-07-11T15:16:54+09:00')..startedDate = string2date('2020-11-13T00:00:00+09:00')..startedDatetime = string2date('2020-11-13T08:00:00+09:00')..endedDatetime = string2date('2020-11-13T17:00:00+09:00'),
@@ -46,8 +46,6 @@ void main() {
         Item()..id = 31..createdAt = string2date('2020-07-11T15:16:55+09:00')..startedDate = string2date('2020-11-25T00:00:00+09:00')..startedDatetime = string2date('2020-11-25T08:00:00+09:00')..endedDatetime = string2date('2020-11-25T17:00:00+09:00'),
         Item()..id = 32..createdAt = string2date('2020-07-11T21:11:45+09:00')..startedDate = string2date('2020-11-25T00:00:00+09:00'),
         Item()..id = 33..createdAt = string2date('2020-07-11T21:11:45+09:00')..startedDate = string2date('2020-11-26T00:00:00+09:00'),
-        // Item()..id = 999999..createdAt = string2date('2020-07-11T21:11:45+09:00')..startedDate = string2date('2020-11-26T00:00:00+09:00'),
-        // Item()..id = 999999..createdAt = string2date('2020-07-11T21:11:45+09:00')..startedDate = string2date('2020-11-26T00:00:00+09:00'),
       ];
     });
 
@@ -66,6 +64,7 @@ void main() {
         expect(result[i].id, i);
       }
     });
+
 
   });
 }
